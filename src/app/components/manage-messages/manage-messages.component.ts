@@ -1,4 +1,4 @@
-import { IMessage } from '../../../../../server/app/interfaces/i_message';
+import { Message } from './../../interfaces/message';
 import { MessageService } from './../../services/message.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manage-messages.component.scss']
 })
 export class ManageMessagesComponent implements OnInit {
-  sentMessages: IMessage[];
-  receivedMessages: IMessage[];
+  sentMessages: Message[];
+  receivedMessages: Message[];
 
   constructor(private messageService: MessageService) { }
 

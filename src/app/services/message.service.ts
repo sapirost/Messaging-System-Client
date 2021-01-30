@@ -1,7 +1,7 @@
-import { IMessage } from '../../../../server/app/interfaces/i_message';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Message } from '../interfaces/message';
 import { BaseService } from './base.service';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class MessageService extends BaseService {
     return this.http.get(endPoint);
   }
 
-  send(message: IMessage): Observable<any> {
+  send(message: Message): Observable<any> {
     const endPoint = this.buildFullEndPoint(this.BASE_SERVICE_URL);
 
     return this.http.post(endPoint, message);

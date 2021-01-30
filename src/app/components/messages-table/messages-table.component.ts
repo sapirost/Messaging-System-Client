@@ -1,6 +1,6 @@
+import { Message } from './../../interfaces/message';
 import { AuthenticationService } from './../../services/authentication.service';
 import { MessageService } from './../../services/message.service';
-import { IMessage } from '../../../../../server/app/interfaces/i_message';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -19,7 +19,7 @@ export class MessagesTableComponent implements OnInit {
 
   @Input() isSentMessage: boolean;
   @Input('data')
-  set value(data: IMessage[]) {
+  set value(data: Message[]) {
     this.setDataTable(data);
   }
 
@@ -32,7 +32,7 @@ export class MessagesTableComponent implements OnInit {
     this.currentUserEmail = userInfo && userInfo.email;
   }
 
-  setDataTable(data: IMessage[]): void {
+  setDataTable(data: Message[]): void {
     this.dataSource = new MatTableDataSource();
     this.dataSource.paginator = this.paginator;
 
