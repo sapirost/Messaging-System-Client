@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  serverIp: ''
+  serverIp: 'https://api-messaging-system.herokuapp.com/'
 };
