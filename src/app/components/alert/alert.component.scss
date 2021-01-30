@@ -1,0 +1,40 @@
+::ng-deep .mat-dialog-container {
+    width: 400px;
+    border-radius: 6px;
+    padding: 0;
+
+    // @media (max-width: $screen-sm) {
+    //     width: 95%;
+    // }
+}
+
+.alert-content-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    header,
+    footer {
+        padding: 15px;
+    }
+
+    header {
+        // background-color: $off-white;
+        // border-bottom: $standard-border #e2e2e2;
+    }
+
+    footer {
+        align-self: flex-end;
+
+        button {
+            // font-family: $regular-font;
+        }
+
+        button:first-child {
+            margin-right: 10px;
+        }
+    }
+
+    section {
+        padding: 10px 15px;
+    }
+}

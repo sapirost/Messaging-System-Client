@@ -1,0 +1,37 @@
+<div class="header">
+  <mat-toolbar class="navbar">
+    <label>COMMUNICATION SYSTEM</label>
+
+    <span class="spacer"></span>
+
+    <ul class="navigation" *ngIf="isAuthenticated">
+      <li>
+        <mat-icon>message</mat-icon>
+        <a routerLink="/compose-message" class="menu-item">New Message</a>
+      </li>
+
+      <mat-divider vertical></mat-divider>
+
+      <li>
+        <mat-icon>all_inbox</mat-icon>
+        <a routerLink="/manage-messages" class="menu-item">Manage Messages</a>
+      </li>
+
+      <mat-divider vertical></mat-divider>
+
+      <li>
+        <mat-icon>person_outline</mat-icon>
+        <a (click)="logout()" class="menu-item"> Logout </a>
+      </li>
+    </ul>
+
+    <ul class="navigation" *ngIf="!isAuthenticated">
+      <li>
+        <mat-icon>person_outline</mat-icon>
+        <a *ngIf="!isAuthenticated" routerLink="login" class="menu-item">
+          Login
+        </a>
+      </li>
+    </ul>
+  </mat-toolbar>
+</div>

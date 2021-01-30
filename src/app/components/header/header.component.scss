@@ -1,0 +1,56 @@
+.header {
+    position: relative;
+    height: 20%;
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.815) 0, rgba(255, 255, 255, 0.363) 0%),
+        url(/assets/images/good-writing.jpg);
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 1px 6px hsla(0, 0%, 0%, 0.25);
+
+    .navbar {
+        height: 20%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: #ffffffb8;
+        border-top: 1px solid #bcbcbc4f;
+        display: flex;
+        font-size: 16px;
+        color: #353535d4;
+
+        label {
+            letter-spacing: 0.4px;
+        }
+    }
+}
+
+.navigation {
+    font-size: 14px;
+    padding-inline-start: unset;
+    display: flex;
+    li {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .menu-item {
+            text-decoration: none;
+            color: inherit;
+        }
+        .mat-icon {
+            margin-right: 5px;
+            height: 18px;
+            width: 18px;
+            font-size: 18px;
+        }
+        &:hover {
+            color: #353535a1;
+        }
+    }
+}
+
+.mat-divider {
+    margin: 5px 10px;
+}

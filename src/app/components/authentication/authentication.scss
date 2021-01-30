@@ -1,0 +1,16 @@
+.wrapper {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    margin-top: 10%;
+}
+
+form,
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-wrapper button:first-child {
+    margin: 10px 0;
+}

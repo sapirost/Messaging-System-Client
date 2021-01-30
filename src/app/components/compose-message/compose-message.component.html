@@ -1,0 +1,45 @@
+<form class="message-form" [formGroup]="messageForm">
+  <mat-form-field>
+    <label matPrefix>To:</label>
+    <input matInput formControlName="receiver" />
+    <mat-hint>Please fill receiver's email address</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <label matPrefix>Subject:</label>
+    <input matInput formControlName="subject" />
+  </mat-form-field>
+
+  <div
+    class="editor-wrapper"
+    [ngClass]="{
+      'ng-invalid':
+        messageForm.get('message').invalid && messageForm.get('message').touched
+    }"
+  >
+    <ckeditor
+      [editor]="Editor"
+      (ready)="onReady($event)"
+      formControlName="message"
+    ></ckeditor>
+  </div>
+
+  <div class="button-wrapper">
+    <button
+      type="button"
+      mat-stroked-button
+      [disabled]="isSendingInProcess"
+      (click)="messageForm.reset()"
+    >
+      Reset
+    </button>
+    <button
+      type="button"
+      mat-stroked-button
+      [disabled]="isSendingInProcess"
+      (click)="send()"
+    >
+      Send
+    </button>
+  </div>
+</form>

@@ -1,0 +1,36 @@
+.message-form {
+    width: 50%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+:host ::ng-deep .editor-wrapper {
+    height: 40vh;
+    border-radius: var(--ck-border-radius);
+    border: 1px solid var(--ck-color-toolbar-border);
+    margin-bottom: 20px;
+    &.ng-invalid {
+        border-color: #db3700;
+    }
+    .ck.ck-toolbar {
+        border: none;
+        border-bottom: 1px solid var(--ck-color-toolbar-border);
+    }
+    .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
+        &.ck-focused {
+            border: none;
+            box-shadow: inset 0 0 10px #00000026;
+        }
+        &.ck-rounded-corners {
+            height: calc(100% - 40px);
+        }
+    }
+}
+
+.button-wrapper {
+    text-align: end;
+    button:first-child {
+        margin-right: 10px;
+    }
+}

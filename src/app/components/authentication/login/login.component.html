@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <h4 class="title">LOGIN</h4>
+
+  <form [formGroup]="loginForm">
+    <mat-form-field>
+      <label matPrefix>Email:</label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <label matPrefix>Password:</label>
+      <input matInput formControlName="password" type="password" />
+    </mat-form-field>
+  </form>
+
+  <div class="button-wrapper">
+    <button
+      type="button"
+      mat-stroked-button
+      [disabled]="isSubmittingProcess"
+      (click)="login()"
+    >
+      Login
+    </button>
+
+    <a routerLink="/register">Not a member?</a>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="table-wrapper">
+  <header class="title-stripe">
+    {{
+      isSentMessage
+        ? "All the messages you sent"
+        : "All the messages you received"
+    }}
+  </header>
+
+  <mat-form-field appearance="fill">
+    <label matPrefix>Filter: </label>
+    <input matInput (keyup)="applyFilter($event)" #input />
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="user">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.userTitle === currentUserEmail ? "Me" : row.userTitle }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="message">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let row" [innerHTML]="row.message"></td>
+    </ng-container>
+
+    <ng-container matColumnDef="creationDate">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let row">{{ row.creationDate | date }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-icon-button (click)="openConfirmAlert(row.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

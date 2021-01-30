@@ -1,0 +1,50 @@
+<div class="wrapper">
+  <h4 class="title">REGISTER</h4>
+
+  <form [formGroup]="registerForm">
+    <mat-form-field>
+      <label matPrefix>Email:</label>
+      <input matInput formControlName="email" appValidEmail />
+      <mat-error>{{ registerForm.get("email").errors?.err }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <label matPrefix>Password:</label>
+      <input
+        type="password"
+        matInput
+        formControlName="password"
+        [appMatchPassword]="registerForm.get('repeatPass').value"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <label matPrefix>Repeat Password:</label>
+      <input
+        type="password"
+        matInput
+        [appMatchPassword]="registerForm.get('password').value"
+        formControlName="repeatPass"
+      />
+      <mat-error>
+        {{
+          registerForm.get("repeatPass").errors?.err ||
+            registerForm.get("password").errors?.err
+        }}
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <div class="button-wrapper">
+    <button
+      type="button"
+      mat-stroked-button
+      [disabled]="isSubmittingProcess"
+      (click)="register()"
+    >
+      Register
+    </button>
+
+    <a routerLink="/login">Already a member?</a>
+  </div>
+</div>
