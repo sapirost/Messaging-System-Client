@@ -18,15 +18,6 @@ export class CanDeactivateGuard implements CanDeactivate<IsPristineAware> {
       return true;
     }
 
-    // return new Promise((resolve, reject) => {
-    //   this.alertService.confirm('Are you sure you want to leave?', 'Changes won\'t be saved.').subscribe(answer => {
-    //     if (answer) {
-    //       resolve(true);
-    //     } else {
-    //       resolve(false);
-    //     }
-    //   });
-    // });
     if (confirm('Are you sure you want to leave?')) {
       return true;
     } else {

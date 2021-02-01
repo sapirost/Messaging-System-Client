@@ -13,9 +13,6 @@ export class AlertService {
 
   confirm(title: string, subtitle: string): Observable<boolean> {
     this.dialogRef = this.dialog.open(AlertComponent, {
-      // hasBackdrop: false,
-      // closeOnNavigation: true,
-      // disableClose: true,
       data: { title, subtitle },
     });
 
